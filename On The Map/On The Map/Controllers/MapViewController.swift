@@ -9,7 +9,7 @@
 import Foundation
 import MapKit
 
-class MapViewController: UIViewController, MKMapViewDelegate {
+class MapViewController: OnTheMapController, MKMapViewDelegate {
     
 
     @IBOutlet weak var mapView: MKMapView!
@@ -21,7 +21,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
     }
     
-     func reload() {
+     override func reload() {
      //   mapView.removeAnnotations(mapView.annotations)
         // The "locations" array is an array of dictionary objects that are similar to the JSON
         // data that you can download from parse.
@@ -86,10 +86,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     // to the URL specified in the annotationViews subtitle property.
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl){
         if control == view.rightCalloutAccessoryView {
-            let app = UIApplication.shared
-            if let toOpen = URL(string: (view.annotation?.subtitle!)!) {
-                app.open(toOpen, options: [:], completionHandler: nil)
-            }
+            openUrl(url: (view.annotation?.subtitle!)!)
         }
     }
 }

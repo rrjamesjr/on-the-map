@@ -47,6 +47,13 @@ class OnTheMapController: UIViewController {
         }
     }
     
+    func openUrl(url: String) {
+        let app = UIApplication.shared
+        if let toOpen = URL(string: url) {
+            app.open(toOpen, options: [:], completionHandler: nil)
+        }
+    }
+    
     
     func reload() {
         print("reload")

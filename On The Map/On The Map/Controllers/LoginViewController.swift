@@ -31,10 +31,7 @@ class LoginViewController: UIViewController {
     fileprivate func handleLoginResponse(success: Bool, error: Error?) {
         if success {
             print(UdacityClient.userInfo!.account.key)
-            StudentLocationClient.getStudentLocations { (locations, error) in
-                StudentLocationModel.studentLocations = locations
-                self.performSegue(withIdentifier: "completeLogin", sender: nil)
-            }
+            self.performSegue(withIdentifier: "completeLogin", sender: nil)
         }
         else {
             var message = error?.localizedDescription ?? "An error was encountered. Please try again later"

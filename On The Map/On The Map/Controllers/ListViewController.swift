@@ -35,6 +35,11 @@ class ListViewController: OnTheMapController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        openUrl(url: StudentLocationModel.studentLocations[indexPath.row].mediaURL)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     override func reload() {
         tableView.reloadData()
     }

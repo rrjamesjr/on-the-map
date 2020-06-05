@@ -28,7 +28,6 @@ class OnTheMapController: UIViewController {
         UdacityClient.logout()
         let loginVC = storyboard?.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
         present(loginVC, animated: true, completion: nil)
-        
     }
     
     @objc fileprivate func refreshPins() {
@@ -38,6 +37,11 @@ class OnTheMapController: UIViewController {
     
     @objc fileprivate func addNewPin() {
         print("addNewPin")
+        performSegue(withIdentifier: "addLocation", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "CANCEL", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
     }
     
     func loadStudentLocations() {

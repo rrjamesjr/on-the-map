@@ -24,6 +24,12 @@ class OnTheMapController: UIViewController {
         self.navigationItem.rightBarButtonItems?.append(UIBarButtonItem(image: UIImage(named: "icon_refresh"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(refreshPins)))
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        reload()
+    }
+    
     @objc fileprivate func logout(){
         UdacityClient.logout()
         let loginVC = storyboard?.instantiateViewController(identifier: "LoginViewController") as! LoginViewController

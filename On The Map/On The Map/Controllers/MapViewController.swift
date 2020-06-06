@@ -17,12 +17,10 @@ class MapViewController: OnTheMapController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: "pin")
-        reload()
-        
     }
     
      override func reload() {
-     //   mapView.removeAnnotations(mapView.annotations)
+        mapView.removeAnnotations(mapView.annotations)
         // The "locations" array is an array of dictionary objects that are similar to the JSON
         // data that you can download from parse.
         let locations = StudentLocationModel.studentLocations
@@ -55,6 +53,7 @@ class MapViewController: OnTheMapController, MKMapViewDelegate {
         
         // When the array is complete, we add the annotations to the map.
         self.mapView.addAnnotations(annotations)
+        
     }
     
     // MARK: - MKMapViewDelegate

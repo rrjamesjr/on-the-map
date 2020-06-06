@@ -33,4 +33,15 @@ class StudentLocationClient: HttpClient {
             }
         }
     }
+    
+    class func addStudentLocation(studentLocation: StudentLocation, completion: @escaping (AddStudentLocationResponse?, Error?) -> Void) {
+        taskForPOSTRequest(url: URL(string: studentLocationUrl)!, body: studentLocation, responseType: AddStudentLocationResponse.self) { (response, data, error) in
+            guard let response = response else {
+                completion(nil, error)
+                return
+            }
+            
+            completion(response, nil)
+        }
+    }
 }

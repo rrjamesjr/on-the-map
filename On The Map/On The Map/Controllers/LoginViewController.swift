@@ -9,9 +9,10 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var loginButton: UIButton!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -21,6 +22,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func login(_ sender: Any) {
+        toggleState()
         UdacityClient.login(username: emailTextField.text ?? "", password: passwordTextField.text ?? "", completion: handleLoginResponse(success:error:))
     }
     
@@ -29,6 +31,7 @@ class LoginViewController: UIViewController {
     }
     
     fileprivate func handleLoginResponse(success: Bool, error: Error?) {
+        self.toggleState()
         if success {
             print(UdacityClient.userInfo!.account.key)
             self.performSegue(withIdentifier: "completeLogin", sender: nil)
@@ -43,6 +46,19 @@ class LoginViewController: UIViewController {
             let alertVC = UIAlertController(title: "Login Failed", message: message, preferredStyle: .alert)
             alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             show(alertVC, sender: nil)
+        }
+    }
+    
+    fileprivate func toggleState() {
+        emailTextField.isEnabled = !emailTextField.isEnabled
+        passwordTextField.isEnabled = !passwordTextField.isEnabled
+        loginButton.isEnabled = !loginButton.isEnabled
+        
+        if activityIndicator.isAnimating {
+            activityIndicator.stopAnimating()
+        }
+        else {
+            activityIndicator.startAnimating()
         }
     }
 }

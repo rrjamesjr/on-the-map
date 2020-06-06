@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -43,43 +44,50 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTA-N2-2SE">
-                                <rect key="frame" x="66" y="363" width="179" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5L5-gx-qCt">
-                                <rect key="frame" x="256" y="357" width="54" height="30"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" link="YES"/>
-                                </accessibility>
-                                <state key="normal" title="Sign Up"/>
-                                <connections>
-                                    <action selector="signUp:" destination="OG9-ON-kbB" eventType="touchUpInside" id="fls-UA-Nmj"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Xaj-Sq-gNa">
+                                <rect key="frame" x="86.5" y="363" width="241" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTA-N2-2SE">
+                                        <rect key="frame" x="0.0" y="5" width="179" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5L5-gx-qCt">
+                                        <rect key="frame" x="187" y="0.0" width="54" height="30"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" link="YES"/>
+                                        </accessibility>
+                                        <state key="normal" title="Sign Up"/>
+                                        <connections>
+                                            <action selector="signUp:" destination="OG9-ON-kbB" eventType="touchUpInside" id="fls-UA-Nmj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="i0p-rh-8Uh">
+                                <rect key="frame" x="197" y="415" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="amL-R6-hBb" firstAttribute="leading" secondItem="ZaL-4b-u4O" secondAttribute="leading" constant="50" id="5py-7I-VjF"/>
-                            <constraint firstItem="5L5-gx-qCt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ZaL-4b-u4O" secondAttribute="leading" symbolic="YES" id="5qa-J9-gg6"/>
-                            <constraint firstItem="5L5-gx-qCt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rTA-N2-2SE" secondAttribute="trailing" constant="8" symbolic="YES" id="9pV-T0-YDG"/>
-                            <constraint firstItem="5L5-gx-qCt" firstAttribute="top" secondItem="amL-R6-hBb" secondAttribute="bottom" constant="4" id="DXF-NL-9Tr"/>
+                            <constraint firstItem="Xaj-Sq-gNa" firstAttribute="bottom" secondItem="amL-R6-hBb" secondAttribute="bottom" constant="40" id="93e-aa-6jD"/>
                             <constraint firstItem="amL-R6-hBb" firstAttribute="centerX" secondItem="hql-yI-2dL" secondAttribute="centerX" id="LFF-gu-tjl"/>
+                            <constraint firstItem="Xaj-Sq-gNa" firstAttribute="centerX" secondItem="hql-yI-2dL" secondAttribute="centerX" id="OX4-P8-6gj"/>
                             <constraint firstItem="amL-R6-hBb" firstAttribute="centerX" secondItem="C83-0e-68L" secondAttribute="centerX" id="QAz-qo-VJs"/>
-                            <constraint firstItem="ZaL-4b-u4O" firstAttribute="trailing" secondItem="5L5-gx-qCt" secondAttribute="trailing" constant="104" id="SWu-yi-HNv"/>
-                            <constraint firstItem="rTA-N2-2SE" firstAttribute="top" secondItem="amL-R6-hBb" secondAttribute="bottom" constant="10" id="gPr-tr-00N"/>
                             <constraint firstItem="C83-0e-68L" firstAttribute="top" secondItem="ZaL-4b-u4O" secondAttribute="top" constant="75" id="kLS-HA-tCJ"/>
                             <constraint firstItem="amL-R6-hBb" firstAttribute="top" secondItem="C83-0e-68L" secondAttribute="bottom" constant="50" id="mdN-4h-V5x"/>
                             <constraint firstItem="C83-0e-68L" firstAttribute="leading" secondItem="ZaL-4b-u4O" secondAttribute="leading" constant="87" id="o0S-Xg-9MV"/>
-                            <constraint firstItem="rTA-N2-2SE" firstAttribute="leading" secondItem="ZaL-4b-u4O" secondAttribute="leading" constant="66" id="rWD-fj-3P7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZaL-4b-u4O"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="vgT-bo-nKD"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="i0p-rh-8Uh" id="QLS-T3-Bb7"/>
                         <outlet property="emailTextField" destination="GSG-gD-Ekg" id="pf4-p4-zfY"/>
+                        <outlet property="loginButton" destination="Yh1-Bp-Lb7" id="Dle-nN-0Pf"/>
                         <outlet property="passwordTextField" destination="89y-Gd-8tz" id="B5B-G2-Qti"/>
                         <segue destination="49e-Tb-3d3" kind="showDetail" identifier="completeLogin" id="SSa-1C-Bb0"/>
                     </connections>
@@ -199,6 +207,10 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="IH6-aq-7KQ">
+                                <rect key="frame" x="197" y="446" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -211,7 +223,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7eS-yr-6pw"/>
                     </view>
+                    <navigationItem key="navigationItem" id="8qX-W2-b1u"/>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="IH6-aq-7KQ" id="fCo-83-7gh"/>
+                        <outlet property="findLocationButton" destination="PJr-gG-aEx" id="NnY-cU-2tU"/>
                         <outlet property="locationTextField" destination="OMu-B1-Jxv" id="ZT5-QP-fL2"/>
                         <outlet property="urlTextField" destination="K6E-xZ-6Jb" id="9CE-X0-efn"/>
                         <segue destination="Fli-oR-l0X" kind="show" identifier="finishAddingLocation" id="N1A-ud-aec"/>
@@ -300,6 +315,9 @@
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="oYr-3s-EPz" kind="show" identifier="addLocation" id="MOo-sf-m6s"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -336,6 +354,9 @@
             <point key="canvasLocation" x="843" y="248"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="MOo-sf-m6s"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="icon_listview-deselected" width="75" height="50"/>
         <image name="icon_mapview-deselected" width="75" height="50"/>
